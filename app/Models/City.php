@@ -24,7 +24,7 @@ class City extends Model
         $this->attributes['slug'] = Str::slug($value);
     }
 
-    public function officeSpaces(): HasMany 
+    public function officeSpaces(): HasMany
     {
         return $this->hasMany(OfficeSpace::class);
     }

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug');
-            $table->string('thumbnail')->nullable();
+            $table->string('thumbnail');
             $table->text('about');
             $table->foreignId('city_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->boolean('is_open');
@@ -23,6 +23,7 @@ return new class extends Migration
             $table->integer('price');
             $table->integer('duration');
             $table->string('address');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
