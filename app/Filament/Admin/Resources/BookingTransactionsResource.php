@@ -5,7 +5,8 @@ namespace App\Filament\Admin\Resources;
 use App\Filament\Admin\Resources\BookingTransactionsResource\Pages;
 use App\Models\BookingTransactions;
 use Filament\Forms;
-use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -27,7 +28,28 @@ class BookingTransactionsResource extends Resource
                 TextInput::make('name')
                     ->required()
                     ->maxLength(255),
-                FileUpload::make('photo')
+                TextInput::make('booking_id')
+                    ->required()
+                    ->maxLength(255),
+                TextInput::make('phone_number')
+                    ->required()
+                    ->maxLength(255),
+                TextInput::make('total_am')
+                    ->required()
+                    ->maxLength(255),
+                TextInput::make('duration')
+                    ->required()
+                    ->maxLength(255),
+                DatePicker::make('started_at')
+                    ->required(),
+                DatePicker::make('ended_at')
+                    ->required(),
+                Select::make('is_paid')
+                    ->options([
+                        true => 'Paid',
+                        false => 'Not Paid',
+                    ])
+                    ->required(),
             ]);
     }
 
